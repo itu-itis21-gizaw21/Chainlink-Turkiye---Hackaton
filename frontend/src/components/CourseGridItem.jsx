@@ -2,7 +2,10 @@ import Link from "next/link";
 
 export default function CourseGridItem({ course }) {
 	return (
-		<Link href="#" className="course-grid-item text-decoration-none">
+		<Link
+			href={`/courses/${course.id}`}
+			className="course-grid-item text-decoration-none"
+		>
 			<div className="card">
 				<img
 					src={course.imageUrl}
