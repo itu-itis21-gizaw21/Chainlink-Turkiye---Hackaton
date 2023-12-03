@@ -2,11 +2,15 @@
 
 import WalletManager from "@/components/WalletManager";
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
-import { sepolia } from "wagmi/chains";
+import { hardhat, sepolia } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 
-const { chains, publicClient } = configureChains([sepolia], [publicProvider()]);
+const { chains, publicClient } = configureChains(
+	[sepolia, hardhat],
+	[publicProvider()]
+);
 
 const { connectors } = getDefaultWallets({
 	appName: "Chainlink Hackathon Project",
@@ -20,12 +24,16 @@ const wagmiConfig = createConfig({
 	publicClient,
 });
 
+const queryClient = new QueryClient();
+
 export default function WrapperComponent({ children }) {
 	return (
 		<WagmiConfig config={wagmiConfig}>
 			<RainbowKitProvider chains={chains}>
-				<WalletManager />
-				{children}
+				<QueryClientProvider client={queryClient}>
+					<WalletManager />
+					{children}
+				</QueryClientProvider>
 			</RainbowKitProvider>
 		</WagmiConfig>
 	);
