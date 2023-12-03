@@ -1,0 +1,20 @@
+{
+	"name": "chainlink-hackathon-contract",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"hardhat": "./node_modules/.bin/hardhat",
+		"hardhat-init": "./node_modules/.bin/hardhat init",
+		"hardhat-node": "./node_modules/.bin/hardhat node",
+		"hardhat-compile": "./node_modules/.bin/hardhat compile",
+		"hardhat-deploy": "./node_modules/.bin/hardhat run scripts/deploy.js --network localhost"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@nomicfoundation/hardhat-toolbox": "^4.0.0",
+		"hardhat": "^2.19.1"
+	}
+}
