@@ -8,7 +8,7 @@ import { useAccount, useContractRead, useContractWrite } from "wagmi";
 
 export default function CourseDetailPage({ params }) {
 	const courseQuery = useQuery({
-		queryKey: ["course"],
+		queryKey: ["course", params.courseId],
 		queryFn: () => getCourseById(params.courseId),
 	});
 	const course = courseQuery.data;

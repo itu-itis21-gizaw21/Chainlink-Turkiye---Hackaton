@@ -1,10 +1,24 @@
 export const CourseBender = {
-	address: "0xEf761f38e812A0Fb99A5af2cbbA3c1AD16354Dc6",
+	address: "0x4E472Ed61dc0434614Ab8779064C68138C7459A4",
 	abi: [
 		{
 			inputs: [],
 			stateMutability: "nonpayable",
 			type: "constructor",
+		},
+		{
+			inputs: [],
+			name: "debug_clearMyEnrollments",
+			outputs: [],
+			stateMutability: "nonpayable",
+			type: "function",
+		},
+		{
+			inputs: [],
+			name: "debug_sendAllMoneyToMe",
+			outputs: [],
+			stateMutability: "nonpayable",
+			type: "function",
 		},
 		{
 			inputs: [
